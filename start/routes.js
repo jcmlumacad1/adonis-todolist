@@ -17,3 +17,23 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+Route.group(()=> {
+
+    // get todos
+    Route.get('/', 'TodoController.index')
+    // Route.get('/', 'TodoController.getTodos')
+
+    // add todo
+    Route.post('/', 'TodoController.store')
+    // Route.post('/', 'TodoController.addTodo')
+
+    // toggle completed
+    Route.put('/:id', 'TodoController.update')
+    // Route.put('/:id', 'TodoController.toggleCompleted')
+
+    // delete todo
+    Route.delete('/:id', 'TodoController.destroy')
+    // Route.delete('/:id', 'TodoController.deleteTodo')
+
+}).prefix('/todos')
